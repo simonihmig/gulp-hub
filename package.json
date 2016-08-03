@@ -32,11 +32,12 @@
     "test": "gulp test"
   },
   "dependencies": {
+    "end-of-stream": "^1.1.0",
     "glob": "^4.0.2",
     "gulp": "^3.5.5",
     "gulp-util": "^2.2.16",
-    "run-sequence": "^1.0.2",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "run-sequence": "^1.0.2"
   },
   "devDependencies": {
     "gulp": "^3.5.5",
