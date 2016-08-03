@@ -4,7 +4,7 @@ var sinon   = require( 'sinon' );
 var pequire = require( 'proxyquire' ).noCallThru();
 
 var HAPPY_PROXY_DEPS = {
-    gulp: { task: _.noop },
+    gulp: { task: _.noop, hasTask: _.noop },
     'run-sequence': _.noop
 };
 
@@ -16,7 +16,7 @@ describe( 'add-task', function () {
 
     it( 'adds each tasks\'s subtasks and their parameters to gulp', function () {
         var taskSpy = sinon.spy();
-        var addTask = getAddTask( { gulp: { task: taskSpy } } );
+        var addTask = getAddTask( { gulp: { task: taskSpy, hasTask: _.noop } } );
         addTask( {
             name: 'task-name',
             subtasks: [
@@ -36,7 +36,7 @@ describe( 'add-task', function () {
 
         var addTask = getAddTask( {
             gulp: {
-                task: taskSpy
+                task: taskSpy, hasTask: _.noop
             },
             'run-sequence': runSeqSpy
         } );
